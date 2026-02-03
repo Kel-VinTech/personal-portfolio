@@ -1,118 +1,132 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { Plus, X } from "lucide-react";
 
 const services = [
   {
-    number: "01",
-    title: "Web Development",
+    id: 1,
+    title: "FRONTEND DEVELOPMENT",
     description:
-      "Custom React applications built with TypeScript, Next.js, and modern tooling. Responsive, accessible, and blazing fast.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind"],
+      "Building high-performance web applications with React, TypeScript, and modern frameworks that deliver exceptional user experiences.",
+    features: [
+      "React & TypeScript",
+      "Performance optimization",
+      "Component systems",
+      "Responsive design",
+      "Animation & motion",
+    ],
   },
   {
-    number: "02",
-    title: "Data Analytics & Visualization",
+    id: 2,
+    title: "DATA SCIENCE",
     description:
-      "Turn your data into stories. Interactive dashboards, predictive models, and insights that drive decisions.",
-    tags: ["Python", "Pandas", "D3.js", "Tableau"],
+      "Transforming complex data into actionable insights through advanced analytics, machine learning, and compelling visualizations.",
+    features: [
+      "Data analysis",
+      "Machine learning",
+      "Data visualization",
+      "Predictive modeling",
+      "Statistical analysis",
+    ],
   },
   {
-    number: "03",
-    title: "Performance Marketing",
+    id: 3,
+    title: "AD TARGETING",
     description:
-      "Data-driven ad campaigns across Google, Meta, and LinkedIn. Precision targeting that maximizes your ROI.",
-    tags: ["Google Ads", "Meta Ads", "Analytics", "A/B Testing"],
+      "Creating data-driven advertising campaigns with precise audience targeting that maximize ROI and drive conversions.",
+    features: [
+      "Audience segmentation",
+      "Campaign optimization",
+      "A/B testing",
+      "Conversion tracking",
+      "ROI analysis",
+    ],
   },
   {
-    number: "04",
-    title: "Social Media Strategy",
+    id: 4,
+    title: "SOCIAL MEDIA",
     description:
-      "End-to-end social management: content strategy, community building, influencer partnerships, and growth analytics.",
-    tags: ["Content Strategy", "Community", "Growth", "Analytics"],
+      "Strategic social media management that builds brand presence, engages audiences, and drives measurable growth.",
+    features: [
+      "Content strategy",
+      "Community management",
+      "Analytics & reporting",
+      "Influencer partnerships",
+      "Growth optimization",
+    ],
   },
 ];
 
 export const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [openService, setOpenService] = useState<number | null>(1);
 
   return (
-    <section id="services" className="py-24 relative" ref={ref}>
+    <section id="services" className="py-24 bg-background" ref={ref}>
       <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
-        >
-          <div>
-            <span className="text-primary text-sm uppercase tracking-widest font-medium">
-              • Services
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-4">
-              What I <span className="gradient-text">Do</span>
-            </h2>
-          </div>
-          <p className="text-muted-foreground max-w-md text-lg">
-            A unique blend of technical expertise and marketing savvy to help
-            your business grow.
-          </p>
-        </motion.div>
-
-        {/* Services List */}
-        <div className="space-y-4">
+        {/* Services Accordion */}
+        <div className="space-y-0">
           {services.map((service, index) => (
             <motion.div
-              key={service.number}
-              initial={{ opacity: 0, y: 30 }}
+              key={service.id}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className="group"
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              className="border-t border-border"
             >
-              <div className="relative p-8 md:p-10 rounded-3xl card-gradient border border-border hover:border-primary/50 transition-all duration-500 cursor-pointer overflow-hidden">
-                {/* Hover Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <button
+                onClick={() =>
+                  setOpenService(openService === service.id ? null : service.id)
+                }
+                className="w-full py-8 flex items-center justify-between group"
+              >
+                <h3 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-wide text-foreground group-hover:text-primary transition-colors text-left">
+                  {service.title}
+                </h3>
+                <div className="w-10 h-10 flex items-center justify-center">
+                  {openService === service.id ? (
+                    <X className="w-6 h-6 text-foreground" />
+                  ) : (
+                    <Plus className="w-6 h-6 text-foreground" />
+                  )}
+                </div>
+              </button>
 
-                <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
-                  {/* Number */}
-                  <span className="font-display text-6xl md:text-7xl font-bold text-border group-hover:text-primary/30 transition-colors duration-300">
-                    {service.number}
-                  </span>
-
-                  {/* Content */}
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <h3 className="font-display text-2xl md:text-3xl font-semibold group-hover:text-primary transition-colors">
-                        {service.title}
-                      </h3>
-                      <motion.div
-                        className="p-3 rounded-full bg-secondary group-hover:bg-primary transition-colors"
-                        whileHover={{ scale: 1.1 }}
-                      >
-                        <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
-                      </motion.div>
-                    </div>
-                    <p className="text-muted-foreground mb-6 max-w-2xl">
+              {/* Expanded content */}
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openService === service.id ? "auto" : 0,
+                  opacity: openService === service.id ? 1 : 0,
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="pb-8 grid md:grid-cols-12 gap-8">
+                  <div className="md:col-span-5">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {service.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {service.tags.map((tag) => (
+                  </div>
+                  <div className="md:col-span-7">
+                    <div className="flex flex-wrap gap-3">
+                      {service.features.map((feature) => (
                         <span
-                          key={tag}
-                          className="px-3 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full"
+                          key={feature}
+                          className="text-primary text-sm flex items-center gap-1"
                         >
-                          {tag}
+                          <span>+</span> {feature}
                         </span>
                       ))}
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
+          <div className="border-t border-border" />
         </div>
       </div>
     </section>
