@@ -9,17 +9,6 @@ const services = [
   "Social Media",
 ];
 
-// Tech logos for frontend and data science
-const techLogos = [
-  { name: "React", icon: "⚛️" },
-  { name: "TypeScript", icon: "TS" },
-  { name: "Python", icon: "🐍" },
-  { name: "TensorFlow", icon: "TF" },
-  { name: "D3.js", icon: "D3" },
-  { name: "Next.js", icon: "N" },
-  { name: "Pandas", icon: "🐼" },
-  { name: "Node.js", icon: "⬢" },
-];
 
 export const Hero = () => {
   return (
@@ -119,24 +108,6 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Tech Logos Marquee */}
-      <div className="absolute bottom-0 left-0 right-0 bg-background/95 py-4 border-t border-border overflow-hidden">
-        <motion.div
-          className="flex gap-12 whitespace-nowrap"
-          animate={{ x: [0, -1000] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        >
-          {[...techLogos, ...techLogos, ...techLogos].map((tech, index) => (
-            <div
-              key={`${tech.name}-${index}`}
-              className="flex items-center gap-2 text-muted-foreground"
-            >
-              <span className="text-xl font-bold">{tech.icon}</span>
-              <span className="text-sm font-medium uppercase tracking-wider">{tech.name}</span>
-            </div>
-          ))}
-        </motion.div>
-      </div>
     </section>
   );
 };
