@@ -117,14 +117,16 @@ export const Contact = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-24 overflow-hidden"
         >
-          <div className="flex whitespace-nowrap animate-marquee">
+        <div className="flex whitespace-nowrap animate-marquee">
             {[...Array(2)].map((_, setIndex) => (
               <div key={setIndex} className="flex items-center">
                 {["DREAM", "DELIVERY", "CREATE", "INSPIRE", "DESIGN"].map(
                   (word, index) => (
                     <span
                       key={`${setIndex}-${index}`}
-                      className="font-display text-3xl md:text-4xl tracking-wider mx-4 flex items-center gap-4"
+                      className={`font-display text-3xl md:text-4xl tracking-wider mx-4 flex items-center gap-4 ${
+                        word === "DELIVERY" ? "font-black text-foreground" : ""
+                      }`}
                     >
                       {word}
                       <span className="text-primary text-2xl">✦</span>
@@ -141,7 +143,9 @@ export const Contact = () => {
                   (word, index) => (
                     <span
                       key={`${setIndex}-${index}`}
-                      className="font-display text-3xl md:text-4xl tracking-wider mx-4 flex items-center gap-4"
+                      className={`font-display text-3xl md:text-4xl tracking-wider mx-4 flex items-center gap-4 ${
+                        word === "DELIVERY" ? "font-black text-foreground" : ""
+                      }`}
                     >
                       {word}
                       <span className="text-primary text-2xl">✦</span>
