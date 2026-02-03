@@ -2,21 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-const techTools = [
-  { name: "React", icon: "⚛️" },
-  { name: "TypeScript", icon: "TS" },
-  { name: "Python", icon: "🐍" },
-  { name: "TensorFlow", icon: "TF" },
-  { name: "D3.js", icon: "D3" },
-  { name: "Next.js", icon: "▲" },
-  { name: "Pandas", icon: "🐼" },
-  { name: "Node.js", icon: "⬢" },
-  { name: "Tailwind", icon: "🎨" },
-  { name: "PostgreSQL", icon: "🐘" },
-  { name: "Scikit-learn", icon: "SK" },
-  { name: "Plotly", icon: "📊" },
-];
-
 export const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -25,7 +10,7 @@ export const About = () => {
     <section id="about" className="bg-background py-24" ref={ref}>
       <div className="container mx-auto px-6">
         {/* About content */}
-        <div className="grid md:grid-cols-12 gap-12 mb-20">
+        <div className="grid md:grid-cols-12 gap-12">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -55,26 +40,6 @@ export const About = () => {
             </h2>
           </motion.div>
         </div>
-
-        {/* Tech Tools Marquee */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="overflow-hidden border-t border-border pt-8"
-        >
-          <div className="flex items-center gap-12 animate-marquee">
-            {[...techTools, ...techTools].map((tool, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 text-muted-foreground whitespace-nowrap"
-              >
-                <span className="text-xl font-bold opacity-80">{tool.icon}</span>
-                <span className="text-sm font-medium uppercase tracking-wider">{tool.name}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

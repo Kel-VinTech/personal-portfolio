@@ -66,6 +66,38 @@ export const Services = () => {
   return (
     <section id="services" className="py-24 bg-background" ref={ref}>
       <div className="container mx-auto px-6">
+        {/* Services Header */}
+        <div className="grid md:grid-cols-12 gap-12 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="md:col-span-3"
+          >
+            <span className="text-primary text-sm uppercase tracking-widest font-medium">
+              • SERVICES
+            </span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="md:col-span-9"
+          >
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight tracking-wide">
+              <span className="text-foreground">
+                FROM CONCEPT TO CODE, I OFFER END-TO-END{" "}
+              </span>
+              <span className="text-muted-foreground">
+                SERVICES THAT TRANSFORM IDEAS INTO HIGH-PERFORMING DIGITAL PRODUCTS. 
+                WHETHER IT'S BUILDING INTERFACES OR ANALYZING DATA, I DELIVER SOLUTIONS 
+                THAT DRIVE RESULTS.
+              </span>
+            </h2>
+          </motion.div>
+        </div>
+
         {/* Services Accordion */}
         <div className="space-y-0">
           {services.map((service, index) => (
