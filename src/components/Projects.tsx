@@ -11,18 +11,24 @@ const projects = [
     category: "DEVELOPMENT",
     year: "//2025",
     image: project1,
+    link: "https://datalytics.example.com",
+    tools: ["React", "TypeScript", "D3.js", "Python", "TensorFlow"],
   },
   {
     title: "VIZFLOW",
     category: "DATA SCIENCE",
     year: "//2024",
     image: project2,
+    link: "https://vizflow.example.com",
+    tools: ["Next.js", "Pandas", "Plotly", "PostgreSQL", "FastAPI"],
   },
   {
     title: "ADMETRICS",
     category: "ANALYTICS",
     year: "//2023",
     image: project3,
+    link: "https://admetrics.example.com",
+    tools: ["Vue.js", "Scikit-learn", "Tableau", "Node.js", "MongoDB"],
   },
 ];
 
@@ -56,12 +62,15 @@ export const Projects = () => {
         {/* Projects Grid */}
         <div className="space-y-6">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.a
               key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
-              className="group cursor-pointer"
+              className="group cursor-pointer block"
             >
               <div className="relative aspect-[16/7] overflow-hidden rounded-sm">
                 <motion.img
@@ -72,11 +81,21 @@ export const Projects = () => {
                   transition={{ duration: 0.6 }}
                 />
                 
-                {/* Overlay content */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h3 className="font-display text-4xl md:text-6xl lg:text-7xl text-foreground tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Overlay with tools on hover */}
+                <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
+                  <h3 className="font-display text-4xl md:text-6xl lg:text-7xl text-foreground tracking-wider">
                     {project.title}
                   </h3>
+                  <div className="flex flex-wrap justify-center gap-2 max-w-md px-4">
+                    {project.tools.map((tool) => (
+                      <span
+                        key={tool}
+                        className="px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Category badge */}
@@ -93,7 +112,7 @@ export const Projects = () => {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

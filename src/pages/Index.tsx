@@ -4,7 +4,6 @@ import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { Projects } from "@/components/Projects";
 import { Testimonials } from "@/components/Testimonials";
-import { Awards } from "@/components/Awards";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -17,7 +16,6 @@ const Index = () => {
       <Services />
       <Projects />
       <Testimonials />
-      <Awards />
       <Contact />
       <Footer />
     </div>
