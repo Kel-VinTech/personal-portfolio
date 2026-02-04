@@ -97,6 +97,12 @@
     scroll-behavior: smooth;
   }
 
+  html, body {
+  width: 100%;
+  overflow-x: hidden;
+  }
+
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
