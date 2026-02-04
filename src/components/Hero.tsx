@@ -38,7 +38,7 @@ export const Hero = () => {
 
       <div className="container mx-auto px-6 relative z-10 min-h-screen flex flex-col">
         {/* Top content */}
-        <div className="flex-1 flex items-start pt-32">
+        <div className="flex-1 flex items-start pt-60">
           <div className="flex justify-between w-full">
             {/* Left text */}
             <motion.div
@@ -47,11 +47,11 @@ export const Hero = () => {
               transition={{ delay: 0.3 }}
               className="max-w-xs"
             >
-              <p className="text-foreground/90 text-sm leading-relaxed">
+              <p className="text-foreground/90 text-xl font-semibold leading-relaxed">
                 I partner with brands to create digital
-                <br />
+                
                 experiences that drive conversion and
-                <br />
+              
                 command attention.
               </p>
             </motion.div>
@@ -61,12 +61,12 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-right hidden md:block"
+              className="text-right space-y-3 text-base font-semibold hidden md:block"
             >
               {services.map((service, index) => (
                 <p
                   key={service}
-                  className={`text-sm ${
+                  className={`text-xl ${
                     index === 0 ? "text-foreground" : "text-foreground/60"
                   }`}
                 >
@@ -84,13 +84,13 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="font-display text-[12vw] md:text-[10vw] leading-none tracking-tight text-foreground"
+              className=" text-[2vw] text-lg font-black md:text-[10vw] leading-none tracking-tight text-foreground"
             >
-              DEVFOLIO<sup className="text-[3vw] align-top">®</sup>
+              CODELEVEN<sup className="text-[0.35em] align-super">®</sup> 
             </motion.h1>
 
             {/* Small project thumbnail */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8 }}
@@ -103,7 +103,9 @@ export const Hero = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-            </motion.div>
+            </motion.div> */}
+
+
           </div>
         </div>
       </div>

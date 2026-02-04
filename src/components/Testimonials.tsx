@@ -56,7 +56,7 @@ export const Testimonials = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-wide text-foreground">
+          <h2 className="font-display text-5xl md:text-6xl lg:text-8xl font-black tracking-wide text-foreground">
             CLIENT
             <br />
             FEEDBACK

@@ -22,7 +22,7 @@ export const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="bg-background py-24" ref={ref}>
+    <section id="about" className="bg-background py-40" ref={ref}>
       <div className="container mx-auto px-6">
         {/* About content */}
         <div className="grid md:grid-cols-12 gap-12 mb-20">
@@ -32,7 +32,7 @@ export const About = () => {
             transition={{ duration: 0.6 }}
             className="md:col-span-3"
           >
-            <span className="text-primary text-sm uppercase tracking-widest font-medium">
+            <span className="text-primary text-lg font-bold uppercase tracking-widest">
               • ABOUT
             </span>
           </motion.div>
@@ -43,7 +43,7 @@ export const About = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="md:col-span-9"
           >
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight tracking-wide">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-3xl font-bold leading-tight tracking-wide">
               <span className="text-foreground">
                 I'M A FRONTEND ENGINEER & DATA SCIENTIST FOCUSED ON CREATING{" "}
               </span>
@@ -70,7 +70,7 @@ export const About = () => {
                 className="flex items-center gap-2 text-muted-foreground whitespace-nowrap"
               >
                 <span className="text-xl font-bold opacity-80">{tool.icon}</span>
-                <span className="text-sm font-medium uppercase tracking-wider">{tool.name}</span>
+                <span className="text-base font-black uppercase tracking-wider">{tool.name}</span>
               </div>
             ))}
           </div>

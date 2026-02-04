@@ -74,7 +74,7 @@ export const Services = () => {
             transition={{ duration: 0.6 }}
             className="md:col-span-3"
           >
-            <span className="text-primary text-sm uppercase tracking-widest font-medium">
+            <span className="text-primary text-lg font-bold uppercase tracking-widest ">
               • SERVICES
             </span>
           </motion.div>
@@ -85,7 +85,7 @@ export const Services = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="md:col-span-9"
           >
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-tight tracking-wide">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-3xl font-bold leading-tight tracking-wide">
               <span className="text-foreground">
                 FROM CONCEPT TO CODE, I OFFER END-TO-END{" "}
               </span>
@@ -114,7 +114,7 @@ export const Services = () => {
                 }
                 className="w-full py-8 flex items-center justify-between group"
               >
-                <h3 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-wide text-foreground group-hover:text-primary transition-colors text-left">
+                <h3 className="font-display text-3xl md:text-4xl lg:text-6xl font-black tracking-wide text-foreground group-hover:text-primary transition-colors text-left">
                   {service.title}
                 </h3>
                 <div className="w-10 h-10 flex items-center justify-center">
@@ -138,7 +138,7 @@ export const Services = () => {
               >
                 <div className="pb-8 grid md:grid-cols-12 gap-8">
                   <div className="md:col-span-5">
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-base leading-relaxed">
                       {service.description}
                     </p>
                   </div>
@@ -147,7 +147,7 @@ export const Services = () => {
                       {service.features.map((feature) => (
                         <span
                           key={feature}
-                          className="text-primary text-sm flex items-center gap-1"
+                          className="text-primary text-base flex items-center gap-1"
                         >
                           <span>+</span> {feature}
                         </span>

@@ -11,10 +11,37 @@ export const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log("Form submitted:", formData);
+  // };
+
+
+    const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const to = "info.kelvinleven@gmail.com";
+  const subject = `New Contact Message from ${formData.name}`;
+  const body = `Name: ${formData.name}
+Email: ${formData.email}
+
+Message:
+${formData.message}`;
+
+  const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+    to
+  )}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  // Open Gmail in a new tab
+  const opened = window.open(gmailURL, "_blank");
+
+  // Optional fallback (if popup blocked or user not using Gmail)
+  if (!opened) {
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  }
+};
 
   return (
     <section id="contact" className="py-24 bg-background" ref={ref}>
@@ -26,11 +53,11 @@ export const Contact = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-display text-5xl md:text-6xl tracking-wide text-foreground mb-8">
+            <h2 className="font-display text-5xl md:text-7xl font-black text-foreground mb-8">
               LET'S TALK
             </h2>
 
-            <p className="text-muted-foreground text-sm uppercase tracking-wider mb-8">
+            <p className="text-white font-semibold text-base uppercase mb-8">
               HAVE AN IDEA IN MIND? LET'S
               <br />
               CONNECT AND EXPLORE HOW I
@@ -41,10 +68,10 @@ export const Contact = () => {
             {/* Profile */}
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
-                <span className="text-sm font-medium text-foreground">JD</span>
+                <span className="text-sm font-medium text-foreground">KL</span>
               </div>
               <div>
-                <p className="text-sm font-medium text-primary">JOHN DOE</p>
+                <p className="text-sm font-semibold text-primary">KELVIN LEVEN</p>
                 <p className="text-xs text-muted-foreground">
                   Frontend Dev & Data Scientist
                 </p>
@@ -68,7 +95,7 @@ export const Contact = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className="w-full px-0 py-4 bg-transparent border-b border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                className="w-full px-0 py-4 bg-transparent font-medium border-b border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                 required
               />
             </div>
@@ -81,7 +108,7 @@ export const Contact = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="w-full px-0 py-4 bg-transparent border-b border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                className="w-full px-0 py-4 bg-transparent font-medium border-b border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
                 required
               />
             </div>
@@ -94,7 +121,7 @@ export const Contact = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
                 }
-                className="w-full px-0 py-4 bg-transparent border-b border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
+                className="w-full px-0 py-4 bg-transparent font-medium border-b border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
                 required
               />
             </div>
@@ -124,12 +151,12 @@ export const Contact = () => {
                   (word, index) => (
                     <span
                       key={`${setIndex}-${index}`}
-                      className={`font-display text-3xl md:text-4xl tracking-wider mx-4 flex items-center gap-4 ${
+                      className={`font-display text-3xl font-black md:text-6xl mx-4 flex items-center gap-4 ${
                         word === "DELIVERY" ? "font-black text-foreground" : ""
                       }`}
                     >
                       {word}
-                      <span className="text-primary text-2xl">✦</span>
+                      <span className="text-primary text-5xl">✦</span>
                     </span>
                   )
                 )}
@@ -143,12 +170,12 @@ export const Contact = () => {
                   (word, index) => (
                     <span
                       key={`${setIndex}-${index}`}
-                      className={`font-display text-3xl md:text-4xl tracking-wider mx-4 flex items-center gap-4 ${
+                      className={`font-display font-black text-3xl md:text-6xl mx-4 flex items-center gap-4 ${
                         word === "DELIVERY" ? "font-black text-foreground" : ""
                       }`}
                     >
                       {word}
-                      <span className="text-primary text-2xl">✦</span>
+                      <span className="text-primary text-5xl">✦</span>
                     </span>
                   )
                 )}
@@ -159,11 +186,11 @@ export const Contact = () => {
 
         {/* Email */}
         <div className="text-center mt-16">
-          <p className="text-muted-foreground text-sm mb-2">
+          <p className="text-muted-foreground font-medium text-base mb-2">
             Reach out if you're ready to make something amazing together.
           </p>
-          <p className="font-display text-2xl md:text-3xl tracking-wider text-foreground">
-            HELLO@DEVFOLIO.COM
+          <p className="font-display text-2xl md:text-4xl font-black tracking-wider text-foreground">
+            INFO.KELVINLEVEN@GMAIL.COM
           </p>
         </div>
       </div>

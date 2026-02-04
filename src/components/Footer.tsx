@@ -34,7 +34,7 @@ export const Footer = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-3"
+                className="flex items-center gap-1 text-base font-bold text-muted-foreground hover:text-foreground transition-colors mb-3"
               >
                 {link.name}
                 <ArrowUpRight className="w-3 h-3" />
@@ -48,7 +48,7 @@ export const Footer = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="block text-sm text-foreground hover:text-primary transition-colors mb-3"
+                className="block text-base font-bold text-foreground hover:text-primary transition-colors mb-3"
               >
                 {link.name}
               </a>
@@ -84,36 +84,51 @@ export const Footer = () => {
 
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Devfolio.
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Codeleven.
           </p>
-          <div className="flex gap-8 text-xs text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">
-              License
+          <div className="flex gap-8 text-sm text-muted-foreground">
+            <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info.kelvinleven@gmail.com&su=Website Inquiry&body=Hello Kelvin,"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                Designed by  <span className="text-primary">Codeleven</span>
             </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Changelog
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Style Guide
-            </a>
+
+ 
           </div>
         </div>
       </div>
 
       {/* Red banner marquee */}
-      <div className="bg-primary py-4 overflow-hidden">
+      {/* <div className="bg-primary py-8 overflow-hidden">
         <div className="flex whitespace-nowrap animate-marquee">
           {[...Array(4)].map((_, index) => (
             <span
               key={index}
-              className="font-display text-4xl md:text-6xl tracking-wider text-primary-foreground mx-8"
+              className="text-[400] md:text-6xl font-black tracking-wider mx-8"
             >
-              DEVFOLIO<sup className="text-xl">®</sup> -
+              CODELEVEN<sup className="text-xl">®</sup> -
             </span>
           ))}
         </div>
+      </div> */}
+       <div className="bg-primary py-6 overflow-hidden">
+          <div className="flex w-max animate-[marquee_36s_linear_infinite] whitespace-nowrap">
+            {Array.from({ length: 14 }).map((_, index) => (
+              <span
+                key={index}
+                className="mx-8 font-black uppercase leading-none tracking-wide text-black text-[clamp(4.5rem,8vw,7rem)]"
+              >
+                CODELEVEN<sup className="text-[0.35em] align-super">®</sup> —
+              </span>
+            ))}
+                </div>
       </div>
+
+
     </footer>
   );
 };
