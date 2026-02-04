@@ -47,13 +47,13 @@ export const Projects = () => {
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16"
         >
           <div>
-            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-wide text-foreground">
+            <h2 className="font-display text-5xl md:text-6xl lg:text-8xl font-black text-foreground">
               LATEST
               <br />
               PROJECTS
             </h2>
           </div>
-          <p className="text-muted-foreground text-sm max-w-xs text-right">
+          <p className="text-muted-foreground text-sm md:text-base max-w-sm text-left">
             A thoughtfully curated portfolio demonstrating my
             commitment to simplicity and purposeful design.
           </p>

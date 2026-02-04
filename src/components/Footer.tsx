@@ -3,10 +3,10 @@ import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const socialLinks = [
-  { name: "FACEBOOK", href: "#" },
+  { name: "GITHUB", href: "https://github.com/Kel-VinTech" },
   { name: "INSTAGRAM", href: "#" },
-  { name: "LINKEDIN", href: "#" },
-  { name: "TWITTER", href: "#" },
+  { name: "LINKEDIN", href: "https://www.linkedin.com/in/kelvin-monday" },
+  { name: "TIKTOK", href: "https://www.tiktok.com/@kelvin_leven" },
 ];
 
 const navLinks = [
@@ -72,7 +72,7 @@ export const Footer = () => {
               />
               <motion.button
                 type="submit"
-                className="px-4 py-2 text-sm font-medium border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all"
+                className="px-2 md:px-4 py-2 text-sm font-medium border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -115,12 +115,12 @@ export const Footer = () => {
           ))}
         </div>
       </div> */}
-       <div className="bg-primary py-6 overflow-hidden">
+       <div className="bg-primary py-2 md:py-5 overflow-hidden">
           <div className="flex w-max animate-[marquee_36s_linear_infinite] whitespace-nowrap">
             {Array.from({ length: 14 }).map((_, index) => (
               <span
                 key={index}
-                className="mx-8 font-black uppercase leading-none tracking-wide text-black text-[clamp(4.5rem,8vw,7rem)]"
+                className="mx-2 md:mx-8 font-black uppercase leading-none text-black text-[clamp(4.5rem,8vw,7rem)]"
               >
                 CODELEVEN<sup className="text-[0.35em] align-super">®</sup> —
               </span>
