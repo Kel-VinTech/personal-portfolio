@@ -84,7 +84,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className=" text-[2vw] text-lg font-black md:text-[10vw] leading-none tracking-tight text-foreground"
+              className="font-black leading-none tracking-tight text-foreground text-[clamp(2.5rem,10vw,10rem)]"
             >
               CODELEVEN<sup className="text-[0.35em] align-super">®</sup> 
             </motion.h1>

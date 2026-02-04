@@ -189,7 +189,7 @@ ${formData.message}`;
           <p className="text-muted-foreground font-medium text-base mb-2">
             Reach out if you're ready to make something amazing together.
           </p>
-          <p className="font-display text-2xl md:text-4xl font-black tracking-wider text-foreground">
+          <p className="font-display text-xl md:text-4xl font-black tracking-wider text-foreground">
             INFO.KELVINLEVEN@GMAIL.COM
           </p>
         </div>

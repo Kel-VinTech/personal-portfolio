@@ -32,7 +32,7 @@ export const About = () => {
             transition={{ duration: 0.6 }}
             className="md:col-span-3"
           >
-            <span className="text-primary text-lg font-bold uppercase tracking-widest">
+            <span className="text-primary text-base md:text-lg font-bold uppercase tracking-widest">
               • ABOUT
             </span>
           </motion.div>
@@ -43,7 +43,7 @@ export const About = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="md:col-span-9"
           >
-            <h2 className="font-display text-3xl md:text-4xl lg:text-3xl font-bold leading-tight tracking-wide">
+            <h2 className="font-display text-2xl md:text-4xl lg:text-3xl font-bold leading-tight tracking-wide">
               <span className="text-foreground">
                 I'M A FRONTEND ENGINEER & DATA SCIENTIST FOCUSED ON CREATING{" "}
               </span>

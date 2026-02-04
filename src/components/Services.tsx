@@ -64,7 +64,7 @@ export const Services = () => {
   const [openService, setOpenService] = useState<number | null>(1);
 
   return (
-    <section id="services" className="py-24 bg-background" ref={ref}>
+    <section id="services" className="py-15 md:py-24 bg-background" ref={ref}>
       <div className="container mx-auto px-6">
         {/* Services Header */}
         <div className="grid md:grid-cols-12 gap-12 mb-16">
@@ -74,7 +74,7 @@ export const Services = () => {
             transition={{ duration: 0.6 }}
             className="md:col-span-3"
           >
-            <span className="text-primary text-lg font-bold uppercase tracking-widest ">
+            <span className="text-primary text-base md:text-lg font-bold uppercase tracking-widest ">
               • SERVICES
             </span>
           </motion.div>
@@ -85,7 +85,7 @@ export const Services = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="md:col-span-9"
           >
-            <h2 className="font-display text-3xl md:text-4xl lg:text-3xl font-bold leading-tight tracking-wide">
+            <h2 className="font-display text-2xl md:text-4xl lg:text-3xl font-bold leading-tight tracking-wide">
               <span className="text-foreground">
                 FROM CONCEPT TO CODE, I OFFER END-TO-END{" "}
               </span>
