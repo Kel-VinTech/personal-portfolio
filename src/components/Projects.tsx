@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import project1 from "@/assets/project-1.jpg";
+import project1 from "@/assets/image_1.webp";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
 
 const projects = [
   {
-    title: "DATALYTICS",
-    category: "DEVELOPMENT",
+    title: "APEX CONSULTING",
+    category: "WEB DEVELOPMENT",
     year: "//2025",
     image: project1,
-    link: "https://datalytics.example.com",
-    tools: ["React", "TypeScript", "D3.js", "Python", "TensorFlow"],
+    link: "https://apex-company-website.vercel.app/",
+    tools: ["React", "JavaScript", "Vite", "SwiperJs", "Tailwind CSS"],
   },
   {
     title: "VIZFLOW",
@@ -83,7 +83,7 @@ export const Projects = () => {
                 
                 {/* Overlay with tools on hover */}
                 <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4">
-                  <h3 className="font-display text-4xl md:text-6xl lg:text-7xl text-foreground tracking-wider">
+                  <h3 className="font-display font-black text-4xl md:text-6xl lg:text-7xl text-foreground ">
                     {project.title}
                   </h3>
                   <div className="flex flex-wrap justify-center gap-2 max-w-md px-4">
@@ -100,14 +100,14 @@ export const Projects = () => {
 
                 {/* Category badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1.5 text-xs font-medium bg-foreground text-background">
+                  <span className="px-3 py-1.5 text-sm font-black bg-foreground text-background">
                     {project.category}
                   </span>
                 </div>
 
                 {/* Year */}
                 <div className="absolute top-4 right-4">
-                  <span className="text-xs text-foreground/80 font-mono">
+                  <span className="text-sm font-black text-foreground/80 font-mono">
                     {project.year}
                   </span>
                 </div>

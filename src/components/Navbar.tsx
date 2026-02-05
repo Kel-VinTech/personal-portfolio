@@ -77,13 +77,13 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
+        {/* <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden mt-4 pb-4"
+              className="md:hidden mt-4 pb-4 bg-red-900"
             >
               <div className="flex flex-col gap-2">
                 {navLinks.map((link) => (
@@ -106,7 +106,56 @@ export const Navbar = () => {
               </div>
             </motion.div>
           )}
-        </AnimatePresence>
+        </AnimatePresence> */}
+
+
+        {/* Mobile Menu */}
+          <AnimatePresence>
+  {isMobileMenuOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.25 }}
+      className="md:hidden fixed top-16 inset-0 bg-black z-50 w-screen h-screen"
+    >
+      <div className="flex flex-col gap-8 px-8 py-10 text-center">
+        {navLinks.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            className="text-xl font-bold text-white hover:text-red-500 transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            {link.name}
+          </a>
+        ))}
+
+        <a
+          href="#contact"
+          className="
+            inline-flex  w-fit
+            mx-auto
+            items-center justify-center
+            px-6 py-3
+            text-sm font-bold text-white
+            border border-white/80
+            rounded-full
+            hover:bg-white 
+            transition-colors duration-200
+            hover:text-red-500"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          Contact
+        </a>
+      </div>
+    </motion.div>
+  )}
+          </AnimatePresence>
+
+
+
+
       </div>
     </motion.nav>
   );
